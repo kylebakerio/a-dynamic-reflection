@@ -1,0 +1,25 @@
+notes:
+
+- breaks if you use two at the same time for some reason
+  - seems that the last cube camera will then be used by the original cuberendertarget...
+  - seems like this may be a three js bug? I can't see any evidence of my code causing this to occur right now
+
+- breaks in VR
+  - it is almost like it's trying to render the cube camera view out of one of the eye pieces...?
+    - todo: see if colin's component demo renders in VR? but I think the version is too old...
+
+- todo: add ability to effect materials of gltfs
+  - probably just need to traverse the gltf and add env map to materials...?
+
+- colin's old component:
+  - note: the old component from colin used to do this, see: https://colinfizgig.github.io/aframe_Components/
+  - https://github.com/colinfizgig/aframe_Components/blob/master/components/camera-cube-env.js
+
+- add custom cube camera that allows specifying fov and/or camera positions? current one can have 'wrong zoom' appearance on, for example, a cube that is too small
+
+- when using for a reflective floor, probably would be ideal to have a mode that generates an env map with only one camera instead of all 6; 
+  - since we're rendering to a plane, we can probably leave 5/6 as black squares? experimentation needed.
+
+- you can also try sticking a mirror below a translucent floor, instead of sticking a translucent surface on top of your floor, which should be
+more performant than this library's reflective floor implementation. That seems to produce a less reliable result, though, because of transparency issues. :/
+You can see that demonstrated here: https://aframe-mirror-floor.glitch.me/diarmid-floor.html

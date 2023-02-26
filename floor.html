@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="dynamic-reflection.js"></script>
+  </head>
+  <body>
+    <a-scene>
+          <!--    this light isn't strictly necessary, just putting one in to match the baked light of the model    -->
+      <a-entity id="bake-match" light="intensity: 0.6; castShadow: true; type:directional;" position="6.732 3.456 5.645"></a-entity>
+      <a-entity light="type:ambient;"></a-entity>
+      
+      <a-camera id="cam" wasd-controls="fly:true;"></a-camera>
+      <a-image 
+               rotation="0 90 0"
+               position="-4.89 1.5 -3.95"
+               src="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/go-with-mon.jpg?v=1677203447439"
+               >
+      </a-image>
+      
+      <a-entity shadow="cast: true; receive:true;" id="statue" 
+                position="-2 .81 -5.5" scale=".05 .05 .05" 
+                gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/vallmitjana.glb?v=1677199425524"
+                >
+      </a-entity>
+
+      <a-entity 
+                id="gallery"
+                shadow="receive: true; cast:true;"
+                position="-5 -.1 5" 
+                gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/abandoned_vr_gallery.glb?v=1677207273330"
+                >
+      </a-entity>
+      
+      <a-cylinder 
+                 shadow="receive: true; cast:true;"
+                 animation="property: position; dir:alternate; to: 1 3.75 -3; loop: true; dur: 5000"
+                 position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
+                  >
+      </a-cylinder>
+
+      <a-plane 
+               id="reflective-floor-layer"
+               dynamic-reflection="fps:100; floor:true; size: 1024"
+               shadow="receive: true; cast:false;"
+               material="roughness:0.01;metalness:1;opacity:.25;shader:standard;emissive:#7d7d7d;"
+               position="0 -0.09 -2" rotation="-90 0 0" width="10" height="16" 
+               color="white"
+               >
+      </a-plane>
+      
+      <a-sky 
+             src="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/pixexid-6308af11-7cac-4a02-8565-658f51e634a4.jpeg?v=1677207898664"
+      ></a-sky>
+    
+    </a-scene>
+  </body>
+</html>
