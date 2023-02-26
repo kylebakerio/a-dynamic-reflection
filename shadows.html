@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="dynamic-reflection.js"></script>
+  </head>
+  <body>
+    <a-scene>
+          <!--    this light isn't strictly necessary, just putting one in to match the baked light of the model    -->
+      <a-entity id="bake-match" light="intensity: 0.6; castShadow: true; type:directional; shadowCameraLeft: -6.5; shadowCameraRight:8.4; shadowMapHeight:1024; shadowMapWidth:1024;" position="6.732 3.456 5.645"></a-entity>
+      <a-entity light="type:ambient;"></a-entity>
+      
+      <a-camera id="cam" wasd-controls="fly:true;">
+        <a-entity position="0 0 .3" scale=".2 .2 .2" shadow="cast:true; receive:true;" rotation="0 180 0" gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/vintage_camera.glb?v=1677277928736"></a-entity>
+<!--         <a-sphere radius=".3" shadow="cast:true; receive:false;"></a-sphere> -->
+      </a-camera>
+      <a-image 
+               rotation="0 90 0"
+               position="-4.89 1.5 -3.95"
+               src="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/go-with-mon.jpg?v=1677203447439">
+      </a-image>
+      
+      <a-entity id="statue" shadow="cast: true; receive:true;"  
+                position="4.654 1.212 -0.527" rotation="0 -90 0" scale=".05 .05 .05" 
+                gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/vallmitjana.glb?v=1677199425524"></a-entity>
+
+      <a-entity 
+                id="gallery"
+                shadow="receive: true; cast:true;"
+                position="-5 0 5" 
+                gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/abandoned_vr_gallery.glb?v=1677207273330"></a-entity>
+
+      <a-box 
+             material="opacity:1; color:#502626; metalness:.2; roughness:.5"
+             shadow="receive: true; cast:true;"
+             animation="property: rotation; easing: linear; to: 0 405 0; loop: true; dur: 10000"
+             position="1.7 .5 -3" rotation="0 45 0" >
+              <a-entity scale=".1 .1 .1" position="-0.2 0.505 0" rotation="0 -90 0">
+                <a-entity position="0 1.6 0" scale=".2 .2 .2" rotation="0 180 0" gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/vintage_camera.glb?v=1677277928736"></a-entity>
+                <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+                <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+                <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+                <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+              </a-entity>
+      </a-box>
+
+      <a-plane 
+               id="reflective-floor-layer"
+               dynamic-reflection="fps:100; floor:true; size: 1024"
+               shadow="receive: true; cast:false;"
+               material="color:#675f51;roughness:0;metalness:.15;opacity:.75;shader:standard;emissive:#7d7d7d;emissiveIntensity:0"
+               position="0 0.01 -2" rotation="-90 0 0" width="10" height="16" 
+               color="grey"
+               >
+      </a-plane>
+      
+      <a-sky 
+             src="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/pixexid-6308af11-7cac-4a02-8565-658f51e634a4.jpeg?v=1677207898664"
+      ></a-sky>
+    
+    </a-scene>
+  </body>
+</html>

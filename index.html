@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+    <script src="dynamic-reflection.js"></script>
+  </head>
+  <body>
+    <a-scene renderer="colorManagement:true; toneMapping: reinhard;">
+      <a-camera id="cam" wasd-controls="fly:true;">
+        <a-sphere></a-sphere>
+      </a-camera>
+      
+      <a-box 
+             animation="property: rotation; dir:alternate; to: 0 360 0; loop: true; dur: 10000"
+             position="-2 0.5 -3" rotation="0 45 0" color="#4CC3D9">
+      </a-box>
+      
+      <a-sphere 
+                id="the-sphere"
+                dynamic-reflection="fps:100; moving:true;"
+                material="roughness:0.025;metalness:1;" 
+                animation="property: position; dir:alternate; to: 2.5 5 -5; loop: true; dur: 10000"
+                position="2.5 -3 -5" radius="1.25">
+      </a-sphere>
+
+      <a-entity 
+                id="office-stuff"
+                position="0 0 -3" gltf-model="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/home_office__blender_asset_pack.glb?v=1677199488479"></a-entity>
+      
+      <a-cylinder 
+                 animation="property: position; dir:alternate; to: 1 3.75 -3; loop: true; dur: 5000"
+                 position="2 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      
+      <a-plane 
+               position="0 0 -4" rotation="-90 0 0" width="20" height="20" material="opacity:.5; side:double;" color="blue">
+      </a-plane>
+      
+
+      
+      <a-sky 
+             src="https://cdn.glitch.global/c5820cc6-c0c8-4bfc-8f76-875fda50461d/pixexid-6308af11-7cac-4a02-8565-658f51e634a4.jpeg?v=1677207898664"
+      ></a-sky>
+    
+    </a-scene>
+  </body>
+</html>
+
