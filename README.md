@@ -23,3 +23,6 @@ notes:
 - you can also try sticking a mirror below a translucent floor, instead of sticking a translucent surface on top of your floor, which should be
 more performant than this library's reflective floor implementation. That seems to produce a less reliable result, though, because of transparency issues. :/
 You can see that demonstrated here: https://aframe-mirror-floor.glitch.me/diarmid-floor.html
+
+![Screenshot from 2023-02-24 03-26-48](https://user-images.githubusercontent.com/6391152/221391833-52139802-b55a-4b03-ac21-6cd1169cc40b.png)
+![Screenshot from 2023-02-25 21-49-24](https://user-images.githubusercontent.com/6391152/221391837-b245b256-0e6e-4f7d-a0ff-80ddea6b7c9b.png)
