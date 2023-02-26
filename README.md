@@ -1,3 +1,16 @@
+<!-- github -->
+![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/kylebakerio/a-dynamic-reflection)
+
+To use:
+
+```html
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/kylebakerio/a-dynamic-reflection@1.0.0/dynamic-reflection.js"></script>
+</head>
+```
+
 notes:
 
 - breaks if you use two at the same time for some reason
