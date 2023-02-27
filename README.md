@@ -7,7 +7,7 @@ To use:
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/kylebakerio/a-dynamic-reflection@1.0.0/dynamic-reflection.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/kylebakerio/a-dynamic-reflection@1.1.0/dynamic-reflection.js"></script>
 </head>
 ```
 
@@ -22,7 +22,7 @@ notes:
     - todo: see if colin's component demo renders in VR? but I think the version is too old...
 
 - todo: add ability to effect materials of gltfs
-  - probably just need to traverse the gltf and add env map to materials...?
+  - probably just need to traverse the gltf and add env map to materials, and to listen for gltf loaded event instead of regular loaded event
 
 - colin's old component:
   - note: the old component from colin used to do this, see: https://colinfizgig.github.io/aframe_Components/
@@ -32,6 +32,7 @@ notes:
 
 - when using for a reflective floor, probably would be ideal to have a mode that generates an env map with only one camera instead of all 6; 
   - since we're rendering to a plane, we can probably leave 5/6 as black squares? experimentation needed.
+- would also be nice to be able to specify multiple planes, possible at multiple heights, as part of a floor system. this isn't possible with current implementation, but could be if I modify this component to allow multiple instances to share the same camera. 
 
 - you can also try sticking a mirror below a translucent floor, instead of sticking a translucent surface on top of your floor, which should be
 more performant than this library's reflective floor implementation. That seems to produce a less reliable result, though, because of transparency issues. :/
