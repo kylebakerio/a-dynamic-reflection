@@ -23,13 +23,13 @@ notes:
 
 - todo: add ability to effect materials of gltfs
   - probably just need to traverse the gltf and add env map to materials, and to listen for gltf loaded event instead of regular loaded event
-
-- colin's old component:
   - note: the old component from colin used to do this, see: https://colinfizgig.github.io/aframe_Components/
   - https://github.com/colinfizgig/aframe_Components/blob/master/components/camera-cube-env.js
 
 - add custom cube camera that allows specifying fov and/or camera positions? current one can have 'wrong zoom' appearance on, for example, a cube that is too small
 
+## floor
+- **if setting this above a plane (or the bottom of a gltf), you must have the bottom side of that plane be transparent--so, needs to be a one-sided floor. This is because the reflection cube camera takes a picture from underneath that floor to work.**
 - when using for a reflective floor, probably would be ideal to have a mode that generates an env map with only one camera instead of all 6; 
   - since we're rendering to a plane, we can probably leave 5/6 as black squares? experimentation needed.
 - would also be nice to be able to specify multiple planes, possible at multiple heights, as part of a floor system. this isn't possible with current implementation, but could be if I modify this component to allow multiple instances to share the same camera. 
